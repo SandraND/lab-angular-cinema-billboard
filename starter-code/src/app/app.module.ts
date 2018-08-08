@@ -5,17 +5,30 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { MyHomeComponentComponent } from './components/my-home-component/my-home-component.component';
+import { MyMovieComponentComponent } from './components/my-movie-component/my-movie-component.component';
+import { MoviesService } from './services/movies.service';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'movie', pathMatch: 'full' },
+  { path: 'movie', component: MyHomeComponentComponent },
+  { path: 'movie/:id', component: MyMovieComponentComponent }
+];
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyHomeComponentComponent,
+    MyMovieComponentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
