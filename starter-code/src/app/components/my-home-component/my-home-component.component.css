@@ -1,0 +1,16 @@
+ul {
+    display: flex;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    text-align: center;
+}
+
+img {
+    width: 150px;
+    margin: 0;
+    
+}
